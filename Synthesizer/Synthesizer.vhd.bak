@@ -1,0 +1,24 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use IEEE.NUMERIC_STD.all;
+
+entity Synthesizer is
+port (
+	clk: in std_logic; 
+	led: out std_logic; 
+	);
+end entity;
+
+
+architecture arch of Synthesizer is 
+
+begin
+
+	p: process
+	begin
+	wait until rising_edge(c);
+	led <= '1'
+	end process;
+	
+
+end hl;
