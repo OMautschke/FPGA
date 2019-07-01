@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Synthesizer
-Mon Jun 24 11:40:34 2019
+Mon Jul 01 08:01:29 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -13,10 +13,15 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Post-Synthesis Netlist Statistics for Top Partition
- 10. Elapsed Time Per Partition
- 11. Analysis & Synthesis Messages
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Parameter Settings for User Entity Instance: Top-level Entity: |Synthesizer
+ 12. Parameter Settings for User Entity Instance: i2s:i2s_0
+ 13. Port Connectivity Checks: "i2s:i2s_0"
+ 14. Post-Synthesis Netlist Statistics for Top Partition
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
 
 
 
@@ -42,16 +47,16 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Jun 24 11:40:34 2019       ;
+; Analysis & Synthesis Status        ; Successful - Mon Jul 01 08:01:29 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; Synthesizer                                 ;
 ; Top-level Entity Name              ; Synthesizer                                 ;
 ; Family                             ; Cyclone 10 LP                               ;
-; Total logic elements               ; 55                                          ;
-;     Total combinational functions  ; 55                                          ;
-;     Dedicated logic registers      ; 33                                          ;
-; Total registers                    ; 33                                          ;
-; Total pins                         ; 2                                           ;
+; Total logic elements               ; 0                                           ;
+;     Total combinational functions  ; 0                                           ;
+;     Dedicated logic registers      ; 0                                           ;
+; Total registers                    ; 0                                           ;
+; Total pins                         ; 18                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -162,45 +167,46 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                             ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                      ; Library ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------+---------+
-; Synthesizer.vhd                  ; yes             ; User VHDL File  ; /home/oliver/Uni/FPGA/Synthesizer/Synthesizer.vhd ;         ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                           ;
++----------------------------------+-----------------+-----------------------+-----------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type             ; File Name with Absolute Path                              ; Library ;
++----------------------------------+-----------------+-----------------------+-----------------------------------------------------------+---------+
+; Synthesizer.vhd                  ; yes             ; User VHDL File        ; C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd ;         ;
+; i2s.vhd                          ; yes             ; Auto-Found VHDL File  ; C:/Users/Peter/Documents/FPGA/Synthesizer/i2s.vhd         ;         ;
+; sawtooth.vhd                     ; yes             ; Auto-Found VHDL File  ; C:/Users/Peter/Documents/FPGA/Synthesizer/sawtooth.vhd    ;         ;
++----------------------------------+-----------------+-----------------------+-----------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary             ;
-+---------------------------------------------+-----------+
-; Resource                                    ; Usage     ;
-+---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 55        ;
-;                                             ;           ;
-; Total combinational functions               ; 55        ;
-; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 22        ;
-;     -- 3 input functions                    ; 1         ;
-;     -- <=2 input functions                  ; 32        ;
-;                                             ;           ;
-; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 24        ;
-;     -- arithmetic mode                      ; 31        ;
-;                                             ;           ;
-; Total registers                             ; 33        ;
-;     -- Dedicated logic registers            ; 33        ;
-;     -- I/O registers                        ; 0         ;
-;                                             ;           ;
-; I/O pins                                    ; 2         ;
-;                                             ;           ;
-; Embedded Multiplier 9-bit elements          ; 0         ;
-;                                             ;           ;
-; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 33        ;
-; Total fan-out                               ; 223       ;
-; Average fan-out                             ; 2.42      ;
-+---------------------------------------------+-----------+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+;                                             ;       ;
+; Total combinational functions               ; 0     ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 0     ;
+;     -- 3 input functions                    ; 0     ;
+;     -- <=2 input functions                  ; 0     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 0     ;
+;     -- arithmetic mode                      ; 0     ;
+;                                             ;       ;
+; Total registers                             ; 0     ;
+;     -- Dedicated logic registers            ; 0     ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 18    ;
+;                                             ;       ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+;                                             ;       ;
+; Maximum fan-out node                        ; clock ;
+; Maximum fan-out                             ; 1     ;
+; Total fan-out                               ; 18    ;
+; Average fan-out                             ; 0.50  ;
++---------------------------------------------+-------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -208,9 +214,68 @@ refer to the applicable agreement for further details.
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; |Synthesizer               ; 55 (55)             ; 33 (33)                   ; 0           ; 0            ; 0       ; 0         ; 2    ; 0            ; |Synthesizer        ; Synthesizer ; work         ;
+; |Synthesizer               ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 18   ; 0            ; |Synthesizer        ; Synthesizer ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++-----------------------------------------+--------------------------------------+
+; Register name                           ; Reason for Removal                   ;
++-----------------------------------------+--------------------------------------+
+; sawtooth:saw_0|count[0..31]             ; Stuck at GND due to stuck port clock ;
+; i2s:i2s_0|sclk_cnt[0..31]               ; Stuck at GND due to stuck port clock ;
+; i2s:i2s_0|ws_cnt[0..31]                 ; Stuck at GND due to stuck port clock ;
+; i2s:i2s_0|sclk_int                      ; Stuck at GND due to stuck port clock ;
+; i2s:i2s_0|ws_int                        ; Stuck at GND due to stuck port clock ;
+; i2s:i2s_0|l_data_tx_int[0..15]          ; Stuck at GND due to stuck port clock ;
+; i2s:i2s_0|r_data_tx_int[0..15]          ; Stuck at GND due to stuck port clock ;
+; i2s:i2s_0|sd_tx                         ; Stuck at GND due to stuck port clock ;
+; Total Number of Removed Registers = 131 ;                                      ;
++-----------------------------------------+--------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                   ;
++--------------------------+-------------------------+----------------------------------------------------------+
+; Register name            ; Reason for Removal      ; Registers Removed due to This Register                   ;
++--------------------------+-------------------------+----------------------------------------------------------+
+; sawtooth:saw_0|count[0]  ; Stuck at GND            ; i2s:i2s_0|l_data_tx_int[0], i2s:i2s_0|r_data_tx_int[0]   ;
+;                          ; due to stuck port clock ;                                                          ;
+; sawtooth:saw_0|count[15] ; Stuck at GND            ; i2s:i2s_0|l_data_tx_int[15], i2s:i2s_0|r_data_tx_int[15] ;
+;                          ; due to stuck port clock ;                                                          ;
+; sawtooth:saw_0|count[14] ; Stuck at GND            ; i2s:i2s_0|l_data_tx_int[14], i2s:i2s_0|r_data_tx_int[14] ;
+;                          ; due to stuck port clock ;                                                          ;
+; sawtooth:saw_0|count[13] ; Stuck at GND            ; i2s:i2s_0|l_data_tx_int[13], i2s:i2s_0|r_data_tx_int[13] ;
+;                          ; due to stuck port clock ;                                                          ;
+; sawtooth:saw_0|count[12] ; Stuck at GND            ; i2s:i2s_0|l_data_tx_int[12], i2s:i2s_0|r_data_tx_int[12] ;
+;                          ; due to stuck port clock ;                                                          ;
+; sawtooth:saw_0|count[11] ; Stuck at GND            ; i2s:i2s_0|l_data_tx_int[11], i2s:i2s_0|r_data_tx_int[11] ;
+;                          ; due to stuck port clock ;                                                          ;
+; sawtooth:saw_0|count[10] ; Stuck at GND            ; i2s:i2s_0|l_data_tx_int[10], i2s:i2s_0|r_data_tx_int[10] ;
+;                          ; due to stuck port clock ;                                                          ;
+; sawtooth:saw_0|count[9]  ; Stuck at GND            ; i2s:i2s_0|l_data_tx_int[9], i2s:i2s_0|r_data_tx_int[9]   ;
+;                          ; due to stuck port clock ;                                                          ;
+; sawtooth:saw_0|count[8]  ; Stuck at GND            ; i2s:i2s_0|l_data_tx_int[8], i2s:i2s_0|r_data_tx_int[8]   ;
+;                          ; due to stuck port clock ;                                                          ;
+; sawtooth:saw_0|count[7]  ; Stuck at GND            ; i2s:i2s_0|l_data_tx_int[7], i2s:i2s_0|r_data_tx_int[7]   ;
+;                          ; due to stuck port clock ;                                                          ;
+; sawtooth:saw_0|count[6]  ; Stuck at GND            ; i2s:i2s_0|l_data_tx_int[6], i2s:i2s_0|r_data_tx_int[6]   ;
+;                          ; due to stuck port clock ;                                                          ;
+; sawtooth:saw_0|count[5]  ; Stuck at GND            ; i2s:i2s_0|l_data_tx_int[5], i2s:i2s_0|r_data_tx_int[5]   ;
+;                          ; due to stuck port clock ;                                                          ;
+; sawtooth:saw_0|count[4]  ; Stuck at GND            ; i2s:i2s_0|l_data_tx_int[4], i2s:i2s_0|r_data_tx_int[4]   ;
+;                          ; due to stuck port clock ;                                                          ;
+; sawtooth:saw_0|count[3]  ; Stuck at GND            ; i2s:i2s_0|l_data_tx_int[3], i2s:i2s_0|r_data_tx_int[3]   ;
+;                          ; due to stuck port clock ;                                                          ;
+; sawtooth:saw_0|count[2]  ; Stuck at GND            ; i2s:i2s_0|l_data_tx_int[2], i2s:i2s_0|r_data_tx_int[2]   ;
+;                          ; due to stuck port clock ;                                                          ;
+; sawtooth:saw_0|count[1]  ; Stuck at GND            ; i2s:i2s_0|l_data_tx_int[1], i2s:i2s_0|r_data_tx_int[1]   ;
+;                          ; due to stuck port clock ;                                                          ;
+; i2s:i2s_0|sclk_int       ; Stuck at GND            ; i2s:i2s_0|sd_tx                                          ;
+;                          ; due to stuck port clock ;                                                          ;
++--------------------------+-------------------------+----------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -218,7 +283,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 33    ;
+; Total registers                              ; 0     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -228,24 +293,50 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |Synthesizer ;
++----------------+-------+----------------------------------------------------+
+; Parameter Name ; Value ; Type                                               ;
++----------------+-------+----------------------------------------------------+
+; d_width        ; 16    ; Signed Integer                                     ;
++----------------+-------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------+
+; Parameter Settings for User Entity Instance: i2s:i2s_0 ;
++-----------------+-------+------------------------------+
+; Parameter Name  ; Value ; Type                         ;
++-----------------+-------+------------------------------+
+; mclk_sclk_ratio ; 4     ; Signed Integer               ;
+; sclk_ws_ratio   ; 64    ; Signed Integer               ;
+; d_width         ; 16    ; Signed Integer               ;
++-----------------+-------+------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "i2s:i2s_0"                                                                               ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; l_data_rx ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; r_data_rx ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 2                           ;
-; cycloneiii_ff         ; 33                          ;
-;     plain             ; 33                          ;
-; cycloneiii_lcell_comb ; 55                          ;
-;     arith             ; 31                          ;
-;         2 data inputs ; 31                          ;
-;     normal            ; 24                          ;
-;         1 data inputs ; 1                           ;
-;         3 data inputs ; 1                           ;
-;         4 data inputs ; 22                          ;
+; boundary_port         ; 18                          ;
+; cycloneiii_lcell_comb ; 1                           ;
+;     normal            ; 1                           ;
+;         0 data inputs ; 1                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 3.75                        ;
+; Max LUT depth         ; 0.00                        ;
+; Average LUT depth     ; 0.00                        ;
 +-----------------------+-----------------------------+
 
 
@@ -264,25 +355,62 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Mon Jun 24 11:40:21 2019
+    Info: Processing started: Mon Jul 01 08:01:13 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Synthesizer -c Synthesizer
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
-Info (12021): Found 2 design units, including 1 entities, in source file Synthesizer.vhd
-    Info (12022): Found design unit 1: Synthesizer-arch File: /home/oliver/Uni/FPGA/Synthesizer/Synthesizer.vhd Line: 13
-    Info (12023): Found entity 1: Synthesizer File: /home/oliver/Uni/FPGA/Synthesizer/Synthesizer.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file synthesizer.vhd
+    Info (12022): Found design unit 1: Synthesizer-arch File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 29
+    Info (12023): Found entity 1: Synthesizer File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 5
 Info (12127): Elaborating entity "Synthesizer" for the top level hierarchy
-Info (286030): Timing-Driven Synthesis is running
+Warning (10541): VHDL Signal Declaration warning at Synthesizer.vhd(16): used implicit default value for signal "led8" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 16
+Warning (10541): VHDL Signal Declaration warning at Synthesizer.vhd(17): used implicit default value for signal "led1" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 17
+Warning (10541): VHDL Signal Declaration warning at Synthesizer.vhd(18): used implicit default value for signal "led2" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 18
+Warning (10541): VHDL Signal Declaration warning at Synthesizer.vhd(19): used implicit default value for signal "led3" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 19
+Warning (10541): VHDL Signal Declaration warning at Synthesizer.vhd(20): used implicit default value for signal "led4" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 20
+Warning (10541): VHDL Signal Declaration warning at Synthesizer.vhd(21): used implicit default value for signal "led5" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 21
+Warning (10541): VHDL Signal Declaration warning at Synthesizer.vhd(22): used implicit default value for signal "led6" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 22
+Warning (10541): VHDL Signal Declaration warning at Synthesizer.vhd(23): used implicit default value for signal "led7" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 23
+Warning (10541): VHDL Signal Declaration warning at Synthesizer.vhd(31): used implicit default value for signal "master_clk" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 31
+Warning (10036): Verilog HDL or VHDL warning at Synthesizer.vhd(34): object "l_data_rx" assigned a value but never read File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 34
+Warning (10036): Verilog HDL or VHDL warning at Synthesizer.vhd(35): object "r_data_rx" assigned a value but never read File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 35
+Warning (12125): Using design file i2s.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: i2s-logic File: C:/Users/Peter/Documents/FPGA/Synthesizer/i2s.vhd Line: 22
+    Info (12023): Found entity 1: i2s File: C:/Users/Peter/Documents/FPGA/Synthesizer/i2s.vhd Line: 4
+Info (12128): Elaborating entity "i2s" for hierarchy "i2s:i2s_0" File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 72
+Warning (12125): Using design file sawtooth.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: sawtooth-Behavioral File: C:/Users/Peter/Documents/FPGA/Synthesizer/sawtooth.vhd Line: 15
+    Info (12023): Found entity 1: sawtooth File: C:/Users/Peter/Documents/FPGA/Synthesizer/sawtooth.vhd Line: 8
+Info (12128): Elaborating entity "sawtooth" for hierarchy "sawtooth:saw_0" File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 77
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "mclk[0]" is stuck at GND File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 11
+    Warning (13410): Pin "mclk[1]" is stuck at GND File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 11
+    Warning (13410): Pin "sclk[0]" is stuck at GND File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 12
+    Warning (13410): Pin "sclk[1]" is stuck at GND File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 12
+    Warning (13410): Pin "ws[0]" is stuck at GND File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 13
+    Warning (13410): Pin "ws[1]" is stuck at GND File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 13
+    Warning (13410): Pin "sd_tx" is stuck at GND File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 15
+    Warning (13410): Pin "led8" is stuck at GND File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 16
+    Warning (13410): Pin "led1" is stuck at GND File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 17
+    Warning (13410): Pin "led2" is stuck at GND File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 18
+    Warning (13410): Pin "led3" is stuck at GND File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 19
+    Warning (13410): Pin "led4" is stuck at GND File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 20
+    Warning (13410): Pin "led5" is stuck at GND File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 21
+    Warning (13410): Pin "led6" is stuck at GND File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 22
+    Warning (13410): Pin "led7" is stuck at GND File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 23
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 57 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 1 input pins
-    Info (21059): Implemented 1 output pins
-    Info (21061): Implemented 55 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 971 megabytes
-    Info: Processing ended: Mon Jun 24 11:40:34 2019
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:31
+Warning (21074): Design contains 3 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "clock" File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 9
+    Warning (15610): No output dependent on input pin "reset_n" File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 10
+    Warning (15610): No output dependent on input pin "sd_rx" File: C:/Users/Peter/Documents/FPGA/Synthesizer/Synthesizer.vhd Line: 14
+Info (21057): Implemented 18 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 15 output pins
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 34 warnings
+    Info: Peak virtual memory: 4808 megabytes
+    Info: Processing ended: Mon Jul 01 08:01:29 2019
+    Info: Elapsed time: 00:00:16
+    Info: Total CPU time (on all processors): 00:00:36
 
 

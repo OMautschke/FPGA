@@ -2,16 +2,7 @@
 	"partitions" : [
 		{
 			"name" : "Top",
-			"pins" : [
-				{
-					"name" : "led",
-					"strict" : false
-				},
-				{
-					"name" : "clk",
-					"strict" : false
-				}
-			]
+			"pins" : []
 		}
 	]
 }

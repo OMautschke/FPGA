@@ -5,7 +5,7 @@ ENTITY i2s IS
   GENERIC(
     mclk_sclk_ratio  :  INTEGER := 4;    --number of mclk periods per sclk period
     sclk_ws_ratio    :  INTEGER := 64;   --number of sclk periods per word select period
-    d_width          :  INTEGER := 16);  --data width
+    d_width          :  INTEGER := 8);  --data width
   PORT(
     reset_n    :  IN   STD_LOGIC;                             --asynchronous active low reset
     mclk       :  IN   STD_LOGIC;                             --master clock
